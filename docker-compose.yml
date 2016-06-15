@@ -10,8 +10,25 @@ services:
       - ./master.json:/master.json
     links:
       - worker1
+      - worker2
+      - worker3
   worker1:
     build: .
+    hostname: worker1
+    command: python worker/app.py --verbose --config /worker.json
+    volumes:
+      - ./dedalus:/code
+      - ./worker.json:/worker.json
+  worker2:
+    build: .
+    hostname: worker2
+    command: python worker/app.py --verbose --config /worker.json
+    volumes:
+      - ./dedalus:/code
+      - ./worker.json:/worker.json
+  worker3:
+    build: .
+    hostname: worker3
     command: python worker/app.py --verbose --config /worker.json
     volumes:
       - ./dedalus:/code

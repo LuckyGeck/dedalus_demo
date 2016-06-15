@@ -1,0 +1,16 @@
+{
+    "api": {
+        "access_logger": "dedalus.worker.api.access",
+        "common_logger": "dedalus.worker.api.common",
+        "host": "0.0.0.0",
+        "port": 8081
+    },
+    "backend": "leveldb",
+    "backend_config": {},
+    "plugins": {
+        "backends_dir": "plugins/backends",
+        "execution_data_root": "/tmp/dedalus-worker-root",
+        "executors_dir": "plugins/executors",
+        "resources_dir": "plugins/resources"
+    }
+}

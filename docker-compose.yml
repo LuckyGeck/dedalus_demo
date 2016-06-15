@@ -12,6 +12,10 @@ services:
       - worker1
       - worker2
       - worker3
+    depends_on:
+      - worker1
+      - worker2
+      - worker3
   worker1:
     build: .
     hostname: worker1
@@ -33,3 +37,11 @@ services:
     volumes:
       - ./dedalus:/code
       - ./worker.json:/worker.json
+
+  test:
+    build: .
+    entrypoint: python master/tests/test_master.py --server master --path
+    volumes:
+      - ./dedalus:/code
+    links:
+      - master

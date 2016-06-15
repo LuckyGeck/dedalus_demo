@@ -1,0 +1,18 @@
+version: '2'
+services:
+  master:
+    build: .
+    command: python master/app.py --verbose --config /master.json
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./dedalus:/code
+      - ./master.json:/master.json
+    links:
+      - worker1
+  worker1:
+    build: .
+    command: python worker/app.py --verbose --config /worker.json
+    volumes:
+      - ./dedalus:/code
+      - ./worker.json:/worker.json

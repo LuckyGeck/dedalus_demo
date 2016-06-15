@@ -1,0 +1,3 @@
+[submodule "dedalus"]
+	path = dedalus
+	url = git@github.com:LuckyGeck/dedalus.git

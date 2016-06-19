@@ -21,3 +21,6 @@ demo_ok_big:
 
 demo_ok_simple:
 	docker-compose run --rm test master/tests/demo_ok_simple.json
+
+demo_ok_jumbo:
+	docker-compose run --rm test master/tests/demo_ok_jumbo.json
